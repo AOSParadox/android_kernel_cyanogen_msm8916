@@ -130,6 +130,9 @@ extern int msm_thermal_get_freq_plan_size(uint32_t cluster,
 	unsigned int *table_len);
 extern int msm_thermal_get_cluster_freq_plan(uint32_t cluster,
 	unsigned int *table_ptr);
+extern int msm_thermal_get_cluster_voltage_plan(uint32_t cluster,
+	uint32_t *table_ptr);
+
 /**
  * devmgr_register_mitigation_client - Register for a device and
  *                                     gets a handle for mitigation.
@@ -193,6 +196,11 @@ static inline int msm_thermal_get_freq_plan_size(uint32_t cluster,
 }
 static inline int msm_thermal_get_cluster_freq_plan(uint32_t cluster,
 	unsigned int *table_ptr);
+{
+	return -ENOSYS;
+}
+static inline int msm_thermal_get_cluster_voltage_plan(uint32_t cluster,
+	uint32_t *table_ptr);
 {
 	return -ENOSYS;
 }
